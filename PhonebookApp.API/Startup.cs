@@ -33,7 +33,6 @@ namespace PhonebookApp.API
       services.AddMvc().AddJsonOptions(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
       services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
       services.AddScoped<IContactsRepository, ContactsRepository>();
-      services.AddScoped<IPhoneNumbersRepository, PhoneNumbersRepository>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

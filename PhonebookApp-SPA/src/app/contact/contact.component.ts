@@ -25,4 +25,8 @@ export class ContactComponent implements OnInit {
     this.router.navigate(['new'], { relativeTo: this.route });
   }
 
+  onItemClick(id: number) {
+    this.router.navigate([id], { relativeTo: this.route });
+  }
+
 }

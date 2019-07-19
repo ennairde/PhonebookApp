@@ -12,11 +12,9 @@ namespace PhonebookApp.API.Controllers
   public class ContactsController : ControllerBase
   {
     private readonly IContactsRepository _contactRepo;
-    private readonly IPhoneNumbersRepository _phoneNumberRepo;
-    public ContactsController(IContactsRepository contactRepo, IPhoneNumbersRepository phoneNumberRepo)
+    public ContactsController(IContactsRepository contactRepo)
     {
       _contactRepo = contactRepo;
-      _phoneNumberRepo = phoneNumberRepo;
     }
 
     [HttpPost("addcontact")]
@@ -44,20 +42,6 @@ namespace PhonebookApp.API.Controllers
 
       var createdContact = await _contactRepo.AddContact(contactToAdd);
 
-
-      // var phoneNumberList = contactToAddDTO.PhoneNumbers;
-
-      // foreach (var phoneNumber in phoneNumberList)
-      // {
-
-      //   var phoneNumberToAdd = new PhoneNumber
-      //   {
-      //     ContactId = createdContact.ContactId,
-      //     Number = phoneNumber
-      //   };
-
-      //   var createdPhoneNumber = await _phoneNumberRepo.AddPhoneNumber(phoneNumberToAdd);
-      // }
 
       return Ok(createdContact);
     }
